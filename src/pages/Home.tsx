@@ -58,7 +58,7 @@ const Home = () => {
                 ></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="/lovable-uploads/d4ac5543-3829-4900-b10a-3f536fadf42c.png"
                     alt="Sri Datta Sai Vithal"
                     className="w-full h-full object-cover"
                   />
