@@ -1,12 +1,14 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { ArrowRight, Download, Github, Briefcase, Contact } from 'lucide-react';
+
 const Home = () => {
-  const {
-    primaryColor
-  } = useTheme();
-  return <div className="min-h-screen pt-16">
+  const { primaryColor } = useTheme();
+  
+  return (
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -49,7 +51,7 @@ const Home = () => {
                 backgroundColor: primaryColor
               }}></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-                  <img src="/lovable-uploads/d4ac5543-3829-4900-b10a-3f536fadf42c.png" alt="Sri Datta Sai Vithal" className="w-full h-full object-contain" />
+                  <img src="https://iili.io/FH2CXIa.jpg" alt="Sri Datta Sai Vithal" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -85,7 +87,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Skills */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
@@ -99,7 +100,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
@@ -122,6 +122,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;
