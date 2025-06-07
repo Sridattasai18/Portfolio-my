@@ -26,7 +26,7 @@ const Home = () => {
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight">
                   Hi, I'm{' '}
                   <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-                    Sri Datta
+                    Sri Datta Sai Vithal
                   </span>
                 </h1>
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
@@ -37,7 +37,7 @@ const Home = () => {
                     Data Scientist
                   </span>
                   <span className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-pink-300 text-sm font-medium border border-white/20">
-                    Full Stack Developer
+                    Front End Developer
                   </span>
                 </div>
               </div>
@@ -86,7 +86,8 @@ const Home = () => {
                     <img 
                       src="https://iili.io/FH2CXIa.jpg" 
                       alt="Sri Datta Sai Vithal" 
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" 
+                      className="w-full h-full object-cover object-center-top hover:scale-110 transition-transform duration-500" 
+                      style={{ objectPosition: 'center 20%' }}
                     />
                   </div>
                   
