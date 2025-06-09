@@ -44,7 +44,14 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --primary-color: #3b82f6;
+    /* New Blue Theme Colors */
+    --primary-blue: #457b9d;
+    --sage-gray: #bcb8b1;
+    --mint-turquoise: #4ecdc4;
+    --navy-deep: #2c5aa0;
+    --pearl-gray: #d4d1cc;
+    --aqua-bright: #6ef7e8;
+    --charcoal: #2d3436;
   }
 
   .dark {
@@ -98,30 +105,63 @@
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.3s ease-out forwards;
+    animation: scaleIn 0.4s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.6s ease-out forwards;
   }
 
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   .animate-spin-slow {
-    animation: spin 8s linear infinite;
+    animation: spin 12s linear infinite;
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-drift {
+    animation: drift 6s ease-in-out infinite;
+  }
+
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .blue-gradient-text {
+    background: linear-gradient(135deg, var(--primary-blue), var(--mint-turquoise));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .blue-gradient-bg {
+    background: linear-gradient(135deg, var(--primary-blue), var(--mint-turquoise));
+  }
+
+  .sage-gradient-bg {
+    background: linear-gradient(135deg, var(--sage-gray), var(--pearl-gray));
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -132,7 +172,7 @@
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -143,7 +183,7 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -156,7 +196,37 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(69, 123, 157, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(78, 205, 196, 0.5);
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
   }
 }
 
@@ -165,13 +235,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with blue theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--pearl-gray);
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -179,34 +249,48 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--primary-blue);
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #6b7280;
+  background: var(--mint-turquoise);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  background: var(--navy-deep);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: var(--aqua-bright);
 }
 
-/* Focus styles */
+/* Focus styles with blue theme */
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 2px solid var(--primary-color);
+  outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Blue gradient text utility */
+.blue-gradient-text {
+  background: linear-gradient(135deg, var(--primary-blue), var(--mint-turquoise));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(69, 123, 157, 0.2);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.4);
 }

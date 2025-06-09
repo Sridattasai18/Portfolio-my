@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [primaryColor, setPrimaryColor] = useState('#3b82f6');
+  const [primaryColor, setPrimaryColor] = useState('#457b9d'); // Updated to blue theme
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
@@ -20,6 +20,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     if (savedTheme) setTheme(savedTheme);
     if (savedColor) setPrimaryColor(savedColor);
+    else setPrimaryColor('#457b9d'); // Default to blue theme
   }, []);
 
   useEffect(() => {
