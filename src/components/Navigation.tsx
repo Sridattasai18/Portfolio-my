@@ -9,11 +9,10 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { section: 'home', label: 'Home', icon: Home },
-    { section: 'about', label: 'About', icon: User },
-    { section: 'education', label: 'Education', icon: BookOpen },
-    { section: 'projects', label: 'Projects', icon: Briefcase },
-    { section: 'contact', label: 'Contact', icon: Contact },
+    { section: 'home', label: 'Home' },
+    { section: 'projects', label: 'Projects' },
+    { section: 'about', label: 'About' },
+    { section: 'contact', label: 'Contact' },
   ];
 
   const colorOptions = [
@@ -29,75 +28,74 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <button 
             onClick={() => scrollToSection('home')}
             className="flex items-center space-x-2 cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SD</span>
-            </div>
-            <span className="font-bold text-xl text-gray-900 dark:text-white">Sri Datta</span>
+            <span className="font-bold text-xl text-gray-900">LucaDCz.</span>
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(({ section, label, icon: Icon }) => (
+            {navItems.map(({ section, label }) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:scale-105"
+                className="text-gray-600 hover:text-purple-600 font-medium transition-colors relative group"
               >
-                <Icon size={16} />
-                <span>{label}</span>
+                {label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
 
           {/* Theme Controls */}
           <div className="flex items-center space-x-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-            
-            <div className="relative">
+            <div className="hidden md:flex items-center space-x-2">
               <button
-                onClick={() => setShowColorPicker(!showColorPicker)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
               >
-                <Palette size={18} />
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
               </button>
               
-              {showColorPicker && (
-                <div className="absolute right-0 mt-2 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                  <div className="grid grid-cols-4 gap-2">
-                    {colorOptions.map((color) => (
-                      <button
-                        key={color}
-                        onClick={() => {
-                          setPrimaryColor(color);
-                          setShowColorPicker(false);
-                        }}
-                        className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${
-                          primaryColor === color ? 'border-gray-400' : 'border-gray-200'
-                        }`}
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
+              <div className="relative">
+                <button
+                  onClick={() => setShowColorPicker(!showColorPicker)}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <Palette size={18} />
+                </button>
+                
+                {showColorPicker && (
+                  <div className="absolute right-0 mt-2 p-3 bg-white rounded-lg shadow-lg border border-gray-200">
+                    <div className="grid grid-cols-4 gap-2">
+                      {colorOptions.map((color) => (
+                        <button
+                          key={color}
+                          onClick={() => {
+                            setPrimaryColor(color);
+                            setShowColorPicker(false);
+                          }}
+                          className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${
+                            primaryColor === color ? 'border-gray-400' : 'border-gray-200'
+                          }`}
+                          style={{ backgroundColor: color }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -106,17 +104,32 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-            {navItems.map(({ section, label, icon: Icon }) => (
+          <div className="md:hidden py-4 border-t border-gray-100">
+            {navItems.map(({ section, label }) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 w-full text-left text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+                className="block w-full text-left px-3 py-2 text-gray-600 hover:text-purple-600 font-medium transition-colors"
               >
-                <Icon size={16} />
-                <span>{label}</span>
+                {label}
               </button>
             ))}
+            
+            <div className="flex items-center justify-between px-3 py-2 mt-4 border-t border-gray-100">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
+              
+              <button
+                onClick={() => setShowColorPicker(!showColorPicker)}
+                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <Palette size={18} />
+              </button>
+            </div>
           </div>
         )}
       </div>
