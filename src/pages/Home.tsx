@@ -97,7 +97,7 @@ const Home = () => {
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-lg text-gray-600 flex items-center gap-2">
-                  Hey, I'm Sri Datta <span className="text-2xl">👋</span>
+                  Hey, I'm Kaligotla Sri Datta Sai Vithal <span className="text-2xl">👋</span>
                 </p>
                 
                 <div className="space-y-2">
@@ -116,12 +116,12 @@ const Home = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => scrollToSection('contact')}
+                <a
+                  href="mailto:kaligotlasridattasai18@gmail.com"
                   className="px-8 py-4 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
                 >
                   Get In Touch
-                </button>
+                </a>
                 
                 <button 
                   onClick={() => scrollToSection('projects')}
@@ -138,7 +138,7 @@ const Home = () => {
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-gray-200">
                   <img 
                     src="https://iili.io/FH2CXIa.jpg" 
-                    alt="Sri Datta Sai Vithal" 
+                    alt="Kaligotla Sri Datta Sai Vithal" 
                     className="w-full h-full object-cover object-center-top hover:scale-105 transition-transform duration-700" 
                     style={{ objectPosition: 'center 20%' }}
                   />
@@ -376,7 +376,7 @@ const Home = () => {
           
           <div className="text-center mt-8 text-gray-500 text-sm">
             ©2024 All Rights Reserved<br />
-            Made by Sri Datta Sai Vithal
+            Made by Kaligotla Sri Datta Sai Vithal
           </div>
         </div>
       </section>

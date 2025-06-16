@@ -33,9 +33,14 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <button 
             onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2 cursor-pointer"
+            className="flex items-center space-x-2 cursor-pointer group"
           >
-            <span className="font-bold text-xl text-gray-900">LucaDCz.</span>
+            <div className="relative">
+              <span className="text-2xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-800 bg-clip-text text-transparent tracking-tight">
+                SDSV
+              </span>
+              <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            </div>
           </button>
 
           {/* Desktop Navigation */}
