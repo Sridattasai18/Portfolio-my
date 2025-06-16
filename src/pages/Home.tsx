@@ -1,69 +1,12 @@
-import React, { useState } from 'react';
-import { ArrowRight, Download, Github, Briefcase, Contact, Code, Database, Palette, Star, GraduationCap, MapPin, Calendar, Award, ExternalLink, Mail, Phone, User, BookOpen, Globe, BarChart3, Linkedin, Send, MessageSquare } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { useToast } from '@/hooks/use-toast';
+
+import React from 'react';
+import { ArrowRight, Download, Github, Briefcase, Contact, Code, Database, Palette, Star, GraduationCap, MapPin, Calendar, Award, ExternalLink, Mail, Phone, User, BookOpen, Globe, BarChart3, Linkedin } from 'lucide-react';
 
 const Home = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      emailjs.init('pOUfh8E8pljYvgbxP');
-
-      const result = await emailjs.send(
-        'service_imvnq2vll',
-        'template_enwc15q',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'kaligotlasridattasai18@gmail.com',
-        }
-      );
-
-      console.log('Email sent successfully:', result);
-      
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Failed to send email:', error);
-      
-      toast({
-        title: "Failed to Send Message",
-        description: "There was an error sending your message. Please try again or contact me directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -159,7 +102,7 @@ const Home = () => {
                 
                 <div className="space-y-2">
                   <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                    <span className="text-purple-600">Front-End</span>
+                    <span className="text-purple-600">Front</span>end
                   </h1>
                   <h1 className="text-6xl lg:text-7xl font-bold text-gray-900">
                     Developer
@@ -173,12 +116,12 @@ const Home = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => scrollToSection('contact')}
+                <a
+                  href="mailto:kaligotlasridattasai18@gmail.com"
                   className="px-8 py-4 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
                 >
                   Get In Touch
-                </button>
+                </a>
                 
                 <button 
                   onClick={() => scrollToSection('projects')}
@@ -345,7 +288,7 @@ const Home = () => {
           <div className="prose prose-lg text-gray-600 leading-relaxed space-y-6">
             <p>
               My journey as a Computer Science Engineering student started in 2023, focusing on Artificial Intelligence and Data Science. 
-              I'm passionate about <span className="text-purple-600 font-medium">front-end development</span> and building user-friendly applications.
+              I'm passionate about <span className="text-purple-600 font-medium">frontend development</span> and building user-friendly applications.
             </p>
             
             <p>
@@ -367,174 +310,50 @@ const Home = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">
-              Let's Work Together
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing together.
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl font-bold text-gray-900 mb-8">
+            Interested in working together?
+          </h2>
           
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div className="bg-gray-50 rounded-3xl p-8 lg:p-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8">Send Me a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
-                    Your Name
-                  </label>
-                  <div className="relative">
-                    <User size={20} className="absolute left-4 top-4 text-gray-400" />
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isSubmitting}
-                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 transition-all duration-300 disabled:opacity-50"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-                </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <a
+              href="mailto:kaligotlasridattasai18@gmail.com"
+              className="px-8 py-4 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              Get In Touch
+            </a>
+            
+            <a
+              href="https://drive.google.com/file/d/1FVE9qc_gME7SC5gEVTh4uNjtrr-EPLZP/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-400 transition-colors"
+            >
+              Browse Resume
+            </a>
+          </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
-                    Email Address
-                  </label>
-                  <div className="relative">
-                    <Mail size={20} className="absolute left-4 top-4 text-gray-400" />
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isSubmitting}
-                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 transition-all duration-300 disabled:opacity-50"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-3">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    disabled={isSubmitting}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 transition-all duration-300 disabled:opacity-50"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3">
-                    Message
-                  </label>
-                  <div className="relative">
-                    <MessageSquare size={20} className="absolute left-4 top-4 text-gray-400" />
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isSubmitting}
-                      rows={6}
-                      className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white text-gray-900 transition-all duration-300 resize-none disabled:opacity-50"
-                      placeholder="Tell me about your project, collaboration ideas, or just say hello!"
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center px-8 py-4 rounded-xl text-white font-semibold bg-purple-600 hover:bg-purple-700 transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-600"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} className="mr-3" />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h3>
-                <p className="text-lg text-gray-600 mb-12">
-                  I'm always open to discussing new opportunities, interesting projects, or just having a conversation about technology and development.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <a
-                  href="mailto:kaligotlasridattasai18@gmail.com"
-                  className="group flex items-center p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors duration-300"
-                >
-                  <div className="w-16 h-16 rounded-xl bg-purple-600 flex items-center justify-center mr-6 group-hover:bg-purple-700 transition-colors">
-                    <Mail size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1 text-lg">Email</h4>
-                    <p className="text-gray-600">kaligotlasridattasai18@gmail.com</p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/kaligotla-sri-datta-sai-vithal-01bb2a321"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors duration-300"
-                >
-                  <div className="w-16 h-16 rounded-xl bg-blue-600 flex items-center justify-center mr-6 group-hover:bg-blue-700 transition-colors">
-                    <Linkedin size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1 text-lg">LinkedIn</h4>
-                    <p className="text-gray-600">Connect with me professionally</p>
-                  </div>
-                </a>
-              </div>
-
-              <div className="pt-8">
-                <a
-                  href="https://drive.google.com/file/d/1FVE9qc_gME7SC5gEVTh4uNjtrr-EPLZP/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 border-2 border-purple-600 text-purple-600 font-medium rounded-xl hover:bg-purple-600 hover:text-white transition-colors duration-300"
-                >
-                  <Download size={20} className="mr-3" />
-                  Download Resume
-                </a>
-              </div>
-            </div>
+          {/* Contact Details */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <a href="mailto:kaligotlasridattasai18@gmail.com" className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <Mail className="text-purple-600 mb-3" size={24} />
+              <span className="font-medium text-gray-900">Email</span>
+              <span className="text-gray-600 text-sm text-center">kaligotlasridattasai18@gmail.com</span>
+            </a>
+            <a href="tel:8074684409" className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <Phone className="text-purple-600 mb-3" size={24} />
+              <span className="font-medium text-gray-900">Phone</span>
+              <span className="text-gray-600 text-sm">8074684409</span>
+            </a>
+            <a href="https://www.linkedin.com/in/kaligotla-sri-datta-sai-vithal-01bb2a321" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <Linkedin className="text-purple-600 mb-3" size={24} />
+              <span className="font-medium text-gray-900">LinkedIn</span>
+              <span className="text-gray-600 text-sm">Connect with me</span>
+            </a>
           </div>
 
           {/* Footer */}
-          <div className="flex flex-col sm:flex-row justify-between items-center pt-16 mt-16 border-t border-gray-200">
+          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-gray-200">
             <div className="flex gap-6 mb-4 sm:mb-0">
               <button onClick={() => scrollToSection('home')} className="text-purple-600 hover:text-purple-700 font-medium">Home</button>
               <button onClick={() => scrollToSection('projects')} className="text-gray-600 hover:text-gray-700">Projects</button>
@@ -543,13 +362,13 @@ const Home = () => {
             </div>
             
             <div className="flex gap-4">
-              <a href="https://github.com/Sridattasai18" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-600 transition-colors">
+              <a href="https://github.com/Sridattasai18" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-600">
                 <Github size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/kaligotla-sri-datta-sai-vithal-01bb2a321" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-600 transition-colors">
+              <a href="https://www.linkedin.com/in/kaligotla-sri-datta-sai-vithal-01bb2a321" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-600">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:kaligotlasridattasai18@gmail.com" className="text-gray-400 hover:text-gray-600 transition-colors">
+              <a href="mailto:kaligotlasridattasai18@gmail.com" className="text-gray-400 hover:text-gray-600">
                 <Mail size={20} />
               </a>
             </div>
