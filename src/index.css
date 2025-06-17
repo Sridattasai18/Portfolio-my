@@ -35,7 +35,8 @@
 
     --radius: 0.5rem;
 
-    /* Purple Theme Colors */
+    /* Dynamic Theme Colors */
+    --primary-color: #8b5cf6;
     --primary-purple: #8b5cf6;
     --accent-purple: #a855f7;
     --deep-purple: #7c3aed;
@@ -112,19 +113,20 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #8b5cf6;
+    background: var(--primary-color);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #7c3aed;
+    background: var(--primary-color);
+    opacity: 0.8;
   }
 
   /* Focus styles */
   button:focus,
   input:focus,
   textarea:focus {
-    outline: 2px solid #8b5cf6;
+    outline: 2px solid var(--primary-color);
     outline-offset: 2px;
   }
 
@@ -137,9 +139,9 @@
     transform: translateY(-2px);
   }
 
-  /* Purple gradient text */
-  .purple-gradient-text {
-    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  /* Dynamic gradient text */
+  .dynamic-gradient-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -156,6 +158,11 @@
 
   .animate-slide-up {
     animation: slideUp 0.6s ease-out forwards;
+  }
+
+  /* Theme transition */
+  .theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 }
 
