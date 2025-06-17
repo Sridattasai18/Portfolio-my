@@ -476,16 +476,16 @@ const Home = () => {
                       onChange={handleInputChange}
                       required
                       disabled={isSubmitting}
-                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 ${
+                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 focus:ring-2 focus:border-transparent ${
                         errors.name 
                           ? 'border-red-500 focus:ring-red-500' 
-                          : `focus:ring-2 focus:border-transparent ${
+                          : `${
                               theme === 'dark' 
-                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-gray-500' 
-                                : 'border-gray-300 bg-white text-gray-900'
+                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-opacity-50' 
+                                : 'border-gray-300 bg-white text-gray-900 focus:ring-opacity-50'
                             }`
                       }`}
-                      style={{ focusRingColor: !errors.name ? primaryColor : undefined }}
+                      style={{ '--tw-ring-color': !errors.name ? primaryColor : undefined } as React.CSSProperties}
                       placeholder="Enter your full name"
                     />
                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -506,16 +506,16 @@ const Home = () => {
                       onChange={handleInputChange}
                       required
                       disabled={isSubmitting}
-                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 ${
+                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 focus:ring-2 focus:border-transparent ${
                         errors.email 
                           ? 'border-red-500 focus:ring-red-500' 
-                          : `focus:ring-2 focus:border-transparent ${
+                          : `${
                               theme === 'dark' 
-                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-gray-500' 
-                                : 'border-gray-300 bg-white text-gray-900'
+                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-opacity-50' 
+                                : 'border-gray-300 bg-white text-gray-900 focus:ring-opacity-50'
                             }`
                       }`}
-                      style={{ focusRingColor: !errors.email ? primaryColor : undefined }}
+                      style={{ '--tw-ring-color': !errors.email ? primaryColor : undefined } as React.CSSProperties}
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -534,16 +534,16 @@ const Home = () => {
                     onChange={handleInputChange}
                     required
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 ${
+                    className={`w-full px-4 py-4 border rounded-xl transition-all duration-300 disabled:opacity-50 focus:ring-2 focus:border-transparent ${
                       errors.subject 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : `focus:ring-2 focus:border-transparent ${
+                        : `${
                             theme === 'dark' 
-                              ? 'border-gray-600 bg-gray-800 text-white focus:ring-gray-500' 
-                              : 'border-gray-300 bg-white text-gray-900'
+                              ? 'border-gray-600 bg-gray-800 text-white focus:ring-opacity-50' 
+                              : 'border-gray-300 bg-white text-gray-900 focus:ring-opacity-50'
                           }`
                     }`}
-                    style={{ focusRingColor: !errors.subject ? primaryColor : undefined }}
+                    style={{ '--tw-ring-color': !errors.subject ? primaryColor : undefined } as React.CSSProperties}
                     placeholder="What's this about?"
                   />
                   {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
@@ -563,16 +563,16 @@ const Home = () => {
                       required
                       disabled={isSubmitting}
                       rows={6}
-                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 resize-none disabled:opacity-50 ${
+                      className={`w-full pl-12 pr-4 py-4 border rounded-xl transition-all duration-300 resize-none disabled:opacity-50 focus:ring-2 focus:border-transparent ${
                         errors.message 
                           ? 'border-red-500 focus:ring-red-500' 
-                          : `focus:ring-2 focus:border-transparent ${
+                          : `${
                               theme === 'dark' 
-                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-gray-500' 
-                                : 'border-gray-300 bg-white text-gray-900'
+                                ? 'border-gray-600 bg-gray-800 text-white focus:ring-opacity-50' 
+                                : 'border-gray-300 bg-white text-gray-900 focus:ring-opacity-50'
                             }`
                       }`}
-                      style={{ focusRingColor: !errors.message ? primaryColor : undefined }}
+                      style={{ '--tw-ring-color': !errors.message ? primaryColor : undefined } as React.CSSProperties}
                       placeholder="Tell me about your project, collaboration ideas, or just say hello!"
                     />
                     {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
